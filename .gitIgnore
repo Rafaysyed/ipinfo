@@ -24,9 +24,6 @@ build/
 jspm_packages/
 bower_components/
 
-# Testing
-coverage/
-
 # Miscellaneous
 .DS_Store
 Thumbs.db
