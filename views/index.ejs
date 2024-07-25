@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs') %>
+
+<% if (locals.city) { %>
+<h1>IP Information</h1>
+<ul>
+  <li><span class="label">City:</span> <span class="value"><%= city %></span></li>
+  <li><span class="label">Country:</span> <span class="value"><%= country %></span></li>
+  <li><span class="label">Hostname:</span> <span class="value"><%= hostname %></span></li>
+  <li><span class="label">IP:</span> <span class="value"><%= ip %></span></li>
+  <li><span class="label">Location:</span> <span class="value"><%= loc %></span></li>
+  <li><span class="label">Organization:</span> <span class="value"><%= org %></span></li>
+  <li><span class="label">Postal Code:</span> <span class="value"><%= postal %></span></li>
+  <li><span class="label">Region:</span> <span class="value"><%= region %></span></li>
+  <li><span class="label">Timezone:</span> <span class="value"><%= timezone %></span></li>
+</ul>
+<% }else {  %>
+<h2>Welcome</h2>
+<h3>Your IP is : <%= ip %></h3>
+<% } %>
+
+<div class="container">
+  <form action="/submit" method="POST" onsubmit="hideSubmitButton()">
+    <input type="submit" value="Get More Info" id="submitButton">
+  </form>
+  <% if (locals.city) { %>
+  <div class="btn-container">
+    <button class="btn" onclick="redirectToHome()">Go to Home Page</button>
+  </div>
+  <% } %>
+
+  <script src="/js/main.js"></script>
+  <%- include('partials/footer.ejs') %>
